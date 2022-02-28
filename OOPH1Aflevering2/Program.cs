@@ -1,7 +1,6 @@
-﻿List<string> p = new();
-
+﻿List<TECPerson> p = new();
+List<string> B = new();
 SchoolingCategory s = new();
 
-Schooling a = new(p);
 
-a.SetCourses(p);
+

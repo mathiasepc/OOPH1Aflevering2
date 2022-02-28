@@ -9,6 +9,6 @@ namespace OOPH1Aflevering2.Codes
     internal class TECPerson 
     {
         public CourseCategory UddannelsesLinje { get; set; }
-        public string FullName { get; set; }
+        public string? FullName { get; set; }
     }
 }
