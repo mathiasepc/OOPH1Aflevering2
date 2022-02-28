@@ -18,7 +18,7 @@ namespace OOPH1Aflevering2.Codes
             Courses = courses;
         }
 
-        public virtual void SetCourses(List<string >courses)
+        public virtual void SetCourses(List<string>courses)
         {
             foreach (string displayCourses in (Enum.GetNames(typeof(CourseCategory))))
             {
