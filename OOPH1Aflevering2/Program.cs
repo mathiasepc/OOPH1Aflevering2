@@ -42,10 +42,17 @@ while (true)
         Console.WriteLine($"{c.ToString()}");
         Console.WriteLine("------------------------------------");
 
+        if (c.SchoolingName == SchoolingCategory.Programmingcourse)
+            Console.WriteLine($"off all courses have {ConsoleColor.Green} Programming {ConsoleColor.White} the following courses");
+
+        else if (c.SchoolingName == SchoolingCategory.Supportcourse)
+            Console.WriteLine($"off all courses have {ConsoleColor.Yellow} Programming {ConsoleColor.White} the following courses");
+        else
+            Console.WriteLine($"off all courses have {ConsoleColor.Blue} Programming {ConsoleColor.White} the following courses");
 
         Console.WriteLine("------------------------------------");
 
-        foreach(string temp in c.Courses)
+        foreach (string temp in c.Courses)
             Console.WriteLine($"{temp}");
 
         Console.WriteLine("------------------------------------");
