@@ -46,9 +46,9 @@ while (true)
             Console.WriteLine($"off all courses have {ConsoleColor.Green} Programming {ConsoleColor.White} the following courses");
 
         else if (c.SchoolingName == SchoolingCategory.Supportcourse)
-            Console.WriteLine($"off all courses have {ConsoleColor.Yellow} Programming {ConsoleColor.White} the following courses");
+            Console.WriteLine($"off all courses have {ConsoleColor.Yellow} Support {ConsoleColor.White} the following courses");
         else
-            Console.WriteLine($"off all courses have {ConsoleColor.Blue} Programming {ConsoleColor.White} the following courses");
+            Console.WriteLine($"off all courses have {ConsoleColor.Blue} Infrastucture {ConsoleColor.White} the following courses");
 
         Console.WriteLine("------------------------------------");
 
