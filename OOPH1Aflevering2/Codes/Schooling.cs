@@ -10,33 +10,32 @@ namespace OOPH1Aflevering2.Codes
     {
         public SchoolingCategory SchoolingName { get; set; }
         public List<TECPerson> Teachers { get; set; }
-        public List<string> Courses { get; set; }
+        public List<string>? Courses { get; set; }
 
-        public Schooling(List<TECPerson> teaches, SchoolingCategory schoolingName)
+        public Schooling(SchoolingCategory schoolingName)
         {
-            Teachers = teaches;
             SchoolingName = schoolingName;
 
-            List<TECPerson> teachers = new()
+            List<TECPerson> teacherName = new()
             {
-                new TECPerson { FullName = "Niels Olsen", UddannelsesLinje = (CourseCategory)SchoolingCategory.Programmeringslinje },
-                new TECPerson { FullName = "Bo Hansen", UddannelsesLinje = (CourseCategory)SchoolingCategory.Supportlinje },
-                new TECPerson { FullName = "Ole Nielsen", UddannelsesLinje = (CourseCategory)SchoolingCategory.Infrastrukturlinje }
+                new TECPerson { FullName = "Niels Olsen", UddannelsesLinje = schoolingName },
+                new TECPerson { FullName = "Bo Hansen", UddannelsesLinje = schoolingName },
+                new TECPerson { FullName = "Ole Nielsen", UddannelsesLinje = schoolingName }
             };
         }
 
-        public virtual void SetCourses(List<string>courses)
+        public virtual void SetCourses()
         {
-            List<string> course= new();
+            List<string> courses = new();
             Courses = courses;
-            foreach (string displayCourses in (Enum.GetNames(typeof(CourseCategory))))
+            foreach (var displayCourses in (Enum.GetNames(typeof(CourseCategory))))
             {
-                Console.WriteLine(displayCourses.ToString());
                 courses.Add(displayCourses);
             }
         }
 
-        public abstract string GetTeacher();
+        public abstract void GetTeacher();
+
     }
 }
 

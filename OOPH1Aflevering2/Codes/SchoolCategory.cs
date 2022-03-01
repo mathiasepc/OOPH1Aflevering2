@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,8 +8,8 @@ namespace OOPH1Aflevering2.Codes
 {
     enum SchoolingCategory
     {
-        Programmeringslinje,
-        Supportlinje,
-        Infrastrukturlinje
+        Programmeringslinje = 1,
+        Supportlinje = 2,
+        Infrastrukturlinje = 3
     }
 }
