@@ -9,19 +9,20 @@ namespace OOPH1Aflevering2.Codes
     internal abstract class Schooling
     {
         public SchoolingCategory SchoolingName { get; set; }
+
+        public CourseCategory CourseName { get; set; }
         public List<TECPerson> Teachers { get; set; }
         public List<string>? Courses { get; set; }
 
         public Schooling(SchoolingCategory schoolingName)
         {
-            SchoolingName = schoolingName;
-
             List<TECPerson> teacherName = new()
             {
-                new TECPerson { FullName = "Niels Olsen", UddannelsesLinje = schoolingName },
-                new TECPerson { FullName = "Bo Hansen", UddannelsesLinje = schoolingName },
-                new TECPerson { FullName = "Ole Nielsen", UddannelsesLinje = schoolingName }
+                new TECPerson { FullName = "Niels Olsen", UddannelsesLinje = SchoolingCategory.Programmingcourse },
+                new TECPerson { FullName = "Bo Hansen", UddannelsesLinje = SchoolingCategory.Supportcourse },
+                new TECPerson { FullName = "Ole Nielsen", UddannelsesLinje = SchoolingCategory.infrastructure }
             };
+            Teachers = teacherName.ToList();
         }
 
         public virtual void SetCourses()
@@ -32,10 +33,11 @@ namespace OOPH1Aflevering2.Codes
             {
                 courses.Add(displayCourses);
             }
+
+           
         }
 
         public abstract void GetTeacher();
-
     }
 }
 

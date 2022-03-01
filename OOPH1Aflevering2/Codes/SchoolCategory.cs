@@ -8,8 +8,8 @@ namespace OOPH1Aflevering2.Codes
 {
     enum SchoolingCategory
     {
-        Programmeringslinje = 1,
-        Supportlinje = 2,
-        Infrastrukturlinje = 3
+        Programmingcourse,
+        Supportcourse,
+        infrastructure
     }
 }

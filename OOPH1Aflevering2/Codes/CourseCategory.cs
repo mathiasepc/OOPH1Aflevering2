@@ -8,11 +8,11 @@ namespace OOPH1Aflevering2.Codes
 {
     enum CourseCategory
     { 
-        Basic_programmering = 0,
-        Objectorientatet_programmering = 1,
-        Web_server = 2,
-        Database_server = 3,
-        WAN_ethernet = 4,
-        LAN_ethernet = 5
+        Basic_programming,
+        Objectoriented_programming,
+        Web_server,
+        Database_server,
+        WAN_ethernet,
+        LAN_ethernet
     }
 }
