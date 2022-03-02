@@ -105,8 +105,12 @@ while (true)
         Console.WriteLine("------------------------------------");
 
         Console.WriteLine("Teacher:");
+
+
+        c.Teachers.Sort();
         foreach (var item in c.Teachers)
         {
+
             if (c.SchoolingName == item.UddannelsesLinje)
             {
                 if (item.FullName == "Niels Olsen")
