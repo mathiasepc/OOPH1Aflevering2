@@ -1,4 +1,6 @@
-﻿SchoolingCategory school = new();
+﻿//Vi har valgt ikke at bruge nogen exception handler andet end i vores switch da det er hardcoded data.
+
+SchoolingCategory school = new();
 List<TECPerson> persons = new();
 
 Course c = new(school);
@@ -45,18 +47,14 @@ while (true)
 
         if (c.SchoolingName == SchoolingCategory.Programmingcourse)
         {
-
             Console.Write("Off all courses have ");
             Console.ForegroundColor = ConsoleColor.Green;
             Console.Write($"Programming");
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine(" with the following extension.");
-
-
         }
         else if (c.SchoolingName == SchoolingCategory.Supportcourse)
         {
-
             Console.Write("Off all courses have ");
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.Write("Support");
@@ -107,11 +105,9 @@ while (true)
 
         Console.WriteLine("Teacher:");
 
-
         c.Teachers.Sort();
         foreach (var item in c.Teachers)
         {
-
             if (c.SchoolingName == item.UddannelsesLinje)
             {
                 if (item.FullName == "Niels Olsen")

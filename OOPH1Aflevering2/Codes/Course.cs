@@ -36,7 +36,6 @@ namespace OOPH1Aflevering2.Codes
 
         public override void GetTeacher()
         {
-
             List<TECPerson> displayTeachers = new();
             Teachers = displayTeachers;
 
@@ -53,7 +52,6 @@ namespace OOPH1Aflevering2.Codes
 
                     else
                         displayTeachers.Add(displayTeacher);
-
                 }
                 else
                     displayTeachers.Add(displayTeacher);
