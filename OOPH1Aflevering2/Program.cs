@@ -14,6 +14,7 @@ while (true)
     Console.WriteLine("Pick: 1, 2 eller 3");
 
     var choice = Console.ReadKey();
+
     switch (choice.Key)
     {
         case ConsoleKey.D1:
@@ -29,9 +30,7 @@ while (true)
             c.SetCourses();
             break;
         default:
-            Console.Clear();
-            Console.WriteLine("The typed format is wrong. Press enter to try agian.");
-            Console.ReadKey();
+            Console.WriteLine("The typed format is wrong try agian. Press enter to continue");
             break;
     }
 
