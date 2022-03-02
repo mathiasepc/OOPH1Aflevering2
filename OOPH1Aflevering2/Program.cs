@@ -74,7 +74,33 @@ while (true)
         Console.WriteLine("------------------------------------");
 
         foreach (string temp in c.Courses)
-            Console.WriteLine($"{temp}");
+        {
+            Console.ForegroundColor = ConsoleColor.White;
+            if (c.SchoolingName == SchoolingCategory.Programmingcourse && temp.Contains("programming"))
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"{temp}");
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+            else if (c.SchoolingName == SchoolingCategory.Supportcourse && temp.Contains("server"))
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine($"{temp}");
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+            else if (c.SchoolingName == SchoolingCategory.infrastructure && temp.Contains("ethernet"))
+            {
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine($"{temp}");
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine($"{temp}");
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+        }
 
         Console.WriteLine("------------------------------------");
 

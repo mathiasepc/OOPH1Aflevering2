@@ -88,9 +88,9 @@ namespace OOPH1Aflevering2.Codes
 
         //    Console.ForegroundColor = ConsoleColor.White;
         //}
-
-
-
     }
+
+
 }
+
 
