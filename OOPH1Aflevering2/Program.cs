@@ -30,7 +30,9 @@ while (true)
             c.SetCourses();
             break;
         default:
+            Console.Clear();
             Console.WriteLine("The typed format is wrong try agian. Press enter to continue");
+            Console.ReadKey();
             break;
     }
 
