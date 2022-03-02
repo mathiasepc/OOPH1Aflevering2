@@ -43,12 +43,33 @@ while (true)
         Console.WriteLine("------------------------------------");
 
         if (c.SchoolingName == SchoolingCategory.Programmingcourse)
-            Console.WriteLine($"off all courses have {ConsoleColor.Green} Programming {ConsoleColor.White} the following courses");
+        {
 
+            Console.Write("Off all courses have ");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write($"Programming");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine(" with the following extension.");
+
+
+        }
         else if (c.SchoolingName == SchoolingCategory.Supportcourse)
-            Console.WriteLine($"off all courses have {ConsoleColor.Yellow} Support {ConsoleColor.White} the following courses");
+        {
+
+            Console.Write("Off all courses have ");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.Write("Support");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine(" with the following extension.");
+        }
         else
-            Console.WriteLine($"off all courses have {ConsoleColor.Blue} Infrastucture {ConsoleColor.White} the following courses");
+        {
+            Console.Write("Off all courses have ");
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.Write("Infrastructure");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine(" with the following extension.");
+        }
 
         Console.WriteLine("------------------------------------");
 
@@ -57,7 +78,7 @@ while (true)
 
         Console.WriteLine("------------------------------------");
 
-        Console.WriteLine("Lærer:");
+        Console.WriteLine("Teacher:");
         c.GetTeacher();
 
         Console.ReadKey();

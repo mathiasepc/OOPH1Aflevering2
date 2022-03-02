@@ -9,6 +9,7 @@ namespace OOPH1Aflevering2.Codes
     internal sealed class Course : Schooling
     {
         public List<string> SchoolingCourses { get; set; }
+
         public Course(SchoolingCategory schoolingName) : base(schoolingName)
         {
             SetCourses();
@@ -35,30 +36,30 @@ namespace OOPH1Aflevering2.Codes
 
         public override void GetTeacher()
         {
-            foreach (var displayTeachers in Teachers)
+            foreach (var displayTeacher in Teachers)
             {
-                if (SchoolingName == displayTeachers.UddannelsesLinje)
+                if (SchoolingName == displayTeacher.UddannelsesLinje)
                 {
-                    if (displayTeachers.FullName == "Niels Olsen")
+                    if (displayTeacher.FullName == "Niels Olsen")
                     {
                         Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine($"{displayTeachers.FullName}");
+                        Console.WriteLine($"{displayTeacher.FullName}");
                     }
-                    else if (displayTeachers.FullName == "Bo Hansen")
+                    else if (displayTeacher.FullName == "Bo Hansen")
                     {
                         Console.ForegroundColor= ConsoleColor.Yellow;
-                        Console.WriteLine($"{displayTeachers.FullName}");
+                        Console.WriteLine($"{displayTeacher.FullName}");
                     }
                     else
                     {
                         Console.ForegroundColor = ConsoleColor.Blue;
-                        Console.WriteLine($"{displayTeachers.FullName}");
+                        Console.WriteLine($"{displayTeacher.FullName}");
                     }
                 }
                 else
                 {
                     Console.ForegroundColor = ConsoleColor.White;
-                    Console.WriteLine($"{displayTeachers.FullName}");
+                    Console.WriteLine($"{displayTeacher.FullName}");
                 }
             }
         }
