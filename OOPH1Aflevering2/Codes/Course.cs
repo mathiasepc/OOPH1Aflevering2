@@ -36,31 +36,23 @@ namespace OOPH1Aflevering2.Codes
 
         public override void GetTeacher()
         {
+            List<TECPerson> displayTeachers = new();
+            Teachers = displayTeachers;
             foreach (var displayTeacher in Teachers)
             {
                 if (SchoolingName == displayTeacher.UddannelsesLinje)
                 {
                     if (displayTeacher.FullName == "Niels Olsen")
-                    {
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine($"{displayTeacher.FullName}");
-                    }
+                        displayTeachers.Add(displayTeacher);
+                    
                     else if (displayTeacher.FullName == "Bo Hansen")
-                    {
-                        Console.ForegroundColor= ConsoleColor.Yellow;
-                        Console.WriteLine($"{displayTeacher.FullName}");
-                    }
+                        displayTeachers.Add(displayTeacher);
+                    
                     else
-                    {
-                        Console.ForegroundColor = ConsoleColor.Blue;
-                        Console.WriteLine($"{displayTeacher.FullName}");
-                    }
+                        displayTeachers.Add(displayTeacher);
                 }
                 else
-                {
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.WriteLine($"{displayTeacher.FullName}");
-                }
+                    displayTeachers.Add(displayTeacher);
             }
         }
     }

@@ -30,9 +30,8 @@ namespace OOPH1Aflevering2.Codes
             List<string> courses = new();
             Courses = courses;
             foreach (var displayCourses in (Enum.GetNames(typeof(CourseCategory))))
-            {
                 courses.Add(displayCourses);
-            }
+            
         }
 
         public abstract void GetTeacher();

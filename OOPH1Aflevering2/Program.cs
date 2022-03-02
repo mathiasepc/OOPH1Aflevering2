@@ -105,7 +105,35 @@ while (true)
         Console.WriteLine("------------------------------------");
 
         Console.WriteLine("Teacher:");
-        c.GetTeacher();
+        foreach (var item in c.Teachers)
+        {
+            if (c.SchoolingName == item.UddannelsesLinje)
+            {
+                if (item.FullName == "Niels Olsen")
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine($"{item.FullName}");
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
+                else if (item.FullName == "Bo Hansen")
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine($"{item.FullName}");
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.WriteLine($"{item.FullName}");
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine($"{item.FullName}");
+            }
+        }
 
         Console.ReadKey();
     }
