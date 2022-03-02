@@ -36,36 +36,31 @@ namespace OOPH1Aflevering2.Codes
 
         public override void GetTeacher()
         {
-            try
+
+            List<TECPerson> displayTeachers = new();
+            Teachers = displayTeachers;
+
+            foreach (var displayTeacher in Teachers)
             {
-                List<TECPerson> displayTeachers = new();
-                Teachers = displayTeachers;
-
-                foreach (var displayTeacher in Teachers)
+                if (SchoolingName == displayTeacher.UddannelsesLinje)
                 {
-                    if (SchoolingName == displayTeacher.UddannelsesLinje)
-                    {
 
-                        if (displayTeacher.FullName == "Niels Olsen")
-                            displayTeachers.Add(displayTeacher);
+                    if (displayTeacher.FullName == "Niels Olsen")
+                        displayTeachers.Add(displayTeacher);
 
-                        else if (displayTeacher.FullName == "Bo Hansen")
-                            displayTeachers.Add(displayTeacher);
+                    else if (displayTeacher.FullName == "Bo Hansen")
+                        displayTeachers.Add(displayTeacher);
 
-                        else
-                            displayTeachers.Add(displayTeacher);
-
-                    }
                     else
                         displayTeachers.Add(displayTeacher);
+
                 }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Noget gik galt");
+                else
+                    displayTeachers.Add(displayTeacher);
             }
         }
-
     }
+
 }
+
 
