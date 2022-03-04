@@ -9,8 +9,6 @@ namespace OOPH1Aflevering2.Codes
     internal class TECPerson : IComparable<TECPerson>
     {
         public SchoolingCategory UddannelsesLinje { get; set; }
-
-        public string SchoolingCourses { get; set; }
         public string? FullName { get; set; }
         public int CompareTo(TECPerson? nextName)
         {
