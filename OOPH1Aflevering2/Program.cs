@@ -3,7 +3,7 @@
 SchoolingCategory school = new();
 List<TECPerson> persons = new();
 
-Course c = new(school);
+Course course = new(school);
 
 while (true)
 {
@@ -20,16 +20,16 @@ while (true)
     switch (choice.Key)
     {
         case ConsoleKey.D1:
-            c.SchoolingName = SchoolingCategory.Programmingcourse;
-            c.SetCourses();
+            course.SchoolingName = SchoolingCategory.Programmingcourse;
+            course.SetCourses();
             break;
         case ConsoleKey.D2:
-            c.SchoolingName = SchoolingCategory.Supportcourse;
-            c.SetCourses();
+            course.SchoolingName = SchoolingCategory.Supportcourse;
+            course.SetCourses();
             break;
         case ConsoleKey.D3:
-            c.SchoolingName = SchoolingCategory.infrastructure;
-            c.SetCourses();
+            course.SchoolingName = SchoolingCategory.infrastructure;
+            course.SetCourses();
             break;
         default:
             Console.Clear();
@@ -42,18 +42,18 @@ while (true)
 
     if (choice.Key == ConsoleKey.D1 || choice.Key == ConsoleKey.D2 || choice.Key == ConsoleKey.D3)
     {
-        Console.WriteLine($"{c.ToString()}");
+        Console.WriteLine($"{course.ToString()}");
         Console.WriteLine("------------------------------------");
 
-        if (c.SchoolingName == SchoolingCategory.Programmingcourse)
+        if (course.SchoolingName == SchoolingCategory.Programmingcourse)
         {
             Console.Write("Off all courses have ");
             Console.ForegroundColor = ConsoleColor.Green;
             Console.Write($"Programming");
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine(" with the following extension.");
+            Console.WriteLine(" the following extension.");
         }
-        else if (c.SchoolingName == SchoolingCategory.Supportcourse)
+        else if (course.SchoolingName == SchoolingCategory.Supportcourse)
         {
             Console.Write("Off all courses have ");
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -67,27 +67,29 @@ while (true)
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.Write("Infrastructure");
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine(" with the following extension.");
+            Console.WriteLine(" the following extension.");
         }
 
         Console.WriteLine("------------------------------------");
 
-        foreach (string temp in c.Courses)
+        course.SchoolingCourses.Sort();
+        foreach (string temp in course.SchoolingCourses)
         {
             Console.ForegroundColor = ConsoleColor.White;
-            if (c.SchoolingName == SchoolingCategory.Programmingcourse && temp.Contains("programming"))
+            if (course.SchoolingName == SchoolingCategory.Programmingcourse && temp.Contains("programming"))
             {
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"{temp}");
+                    Console.WriteLine($"{temp}");
                 Console.ForegroundColor = ConsoleColor.White;
+
             }
-            else if (c.SchoolingName == SchoolingCategory.Supportcourse && temp.Contains("server"))
+            else if (course.SchoolingName == SchoolingCategory.Supportcourse && temp.Contains("server"))
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine($"{temp}");
                 Console.ForegroundColor = ConsoleColor.White;
             }
-            else if (c.SchoolingName == SchoolingCategory.infrastructure && temp.Contains("ethernet"))
+            else if (course.SchoolingName == SchoolingCategory.infrastructure && temp.Contains("ethernet"))
             {
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine($"{temp}");
@@ -105,10 +107,10 @@ while (true)
 
         Console.WriteLine("Teacher:");
 
-        c.Teachers.Sort();
-        foreach (var item in c.Teachers)
+        course.Teachers.Sort();
+        foreach (var item in course.Teachers)
         {
-            if (c.SchoolingName == item.UddannelsesLinje)
+            if (course.SchoolingName == item.UddannelsesLinje)
             {
                 if (item.FullName == "Niels Olsen")
                 {
@@ -135,7 +137,6 @@ while (true)
                 Console.WriteLine($"{item.FullName}");
             }
         }
-
         Console.ReadKey();
     }
     Console.Clear();

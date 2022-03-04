@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.Reflection;
+
 
 namespace OOPH1Aflevering2.Codes
 {
@@ -17,21 +20,24 @@ namespace OOPH1Aflevering2.Codes
         public override void SetCourses()
         {
             base.SetCourses();
-            if (SchoolingName == SchoolingCategory.Programmingcourse)
+            List<string> schoolinCourses = new();
+            SchoolingCourses = schoolinCourses;
+            var enumType = typeof(CourseCategory);
+            Array values = Enum.GetValues(typeof(CourseCategory));
+
+            foreach (var item in values)
             {
-                List<string> schoolingCourses = Courses.Where(a => a.Contains("programming")).ToList();
-                SchoolingCourses = schoolingCourses;
+                DisplayAttribute? courseInfo = item.GetType().GetMember(item.ToString()).First().GetCustomAttribute<DisplayAttribute>();
+
+                string nameInfo = courseInfo.GetName();
+
+                schoolinCourses.Add(nameInfo);
             }
-            else if (SchoolingName == SchoolingCategory.Supportcourse)
-            {
-                List<string> schoolingCourses = Courses.Where(a => a.Contains("server")).ToList();
-                SchoolingCourses = schoolingCourses;
-            }
-            else
-            {
-                List<string> schoolingCourses = Courses.Where(a => a.Contains("ethernet")).ToList();
-                SchoolingCourses = schoolingCourses;
-            }
+        }
+
+        public override string ToString()
+        {
+            return $"** OOP H1 Afleveringsopgave **";
         }
 
         public override void GetTeacher()
@@ -43,7 +49,6 @@ namespace OOPH1Aflevering2.Codes
             {
                 if (SchoolingName == displayTeacher.UddannelsesLinje)
                 {
-
                     if (displayTeacher.FullName == "Niels Olsen")
                         displayTeachers.Add(displayTeacher);
 

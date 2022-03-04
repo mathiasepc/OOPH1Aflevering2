@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,8 +9,6 @@ namespace OOPH1Aflevering2.Codes
     internal abstract class Schooling
     {
         public SchoolingCategory SchoolingName { get; set; }
-
-        public CourseCategory CourseName { get; set; }
         public List<TECPerson> Teachers { get; set; }
         public List<string>? Courses { get; set; }
 
