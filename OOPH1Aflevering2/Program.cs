@@ -13,7 +13,7 @@ while (true)
     Console.WriteLine("2: Support course");
     Console.WriteLine("3: Infrastructur course");
 
-    Console.WriteLine("Pick: 1, 2 eller 3");
+    Console.WriteLine("Pick: 1, 2 or 3");
 
     var choice = Console.ReadKey();
 
@@ -33,7 +33,7 @@ while (true)
             break;
         default:
             Console.Clear();
-            Console.WriteLine("The typed format is wrong try agian. Press enter to continue");
+            Console.WriteLine("The typed format is wrong try again. Press enter to continue");
             Console.ReadKey();
             break;
     }
