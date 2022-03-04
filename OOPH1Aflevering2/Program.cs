@@ -79,7 +79,7 @@ while (true)
             if (course.SchoolingName == SchoolingCategory.Programmingcourse && temp.Contains("programming"))
             {
                 Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine($"{temp}");
+                Console.WriteLine($"{temp}");
                 Console.ForegroundColor = ConsoleColor.White;
 
             }
@@ -110,26 +110,23 @@ while (true)
         course.Teachers.Sort();
         foreach (var item in course.Teachers)
         {
-            if (course.SchoolingName == item.UddannelsesLinje)
+            if (course.SchoolingName == item.UddannelsesLinje && item.FullName == "Niels Olsen")
             {
-                if (item.FullName == "Niels Olsen")
-                {
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine($"{item.FullName}");
-                    Console.ForegroundColor = ConsoleColor.White;
-                }
-                else if (item.FullName == "Bo Hansen")
-                {
-                    Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine($"{item.FullName}");
-                    Console.ForegroundColor = ConsoleColor.White;
-                }
-                else
-                {
-                    Console.ForegroundColor = ConsoleColor.Blue;
-                    Console.WriteLine($"{item.FullName}");
-                    Console.ForegroundColor = ConsoleColor.White;
-                }
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"{item.FullName}");
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+            else if (course.SchoolingName == item.UddannelsesLinje && item.FullName == "Bo Hansen")
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine($"{item.FullName}");
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+            else if (course.SchoolingName == item.UddannelsesLinje && item.FullName == "Ole Nielsen")
+            {
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine($"{item.FullName}");
+                Console.ForegroundColor = ConsoleColor.White;
             }
             else
             {
