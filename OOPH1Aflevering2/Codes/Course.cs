@@ -20,6 +20,7 @@ namespace OOPH1Aflevering2.Codes
         public override void SetCourses()
         {
             base.SetCourses();
+
             List<string> schoolinCourses = new();
             SchoolingCourses = schoolinCourses;
             var enumType = typeof(CourseCategory);
