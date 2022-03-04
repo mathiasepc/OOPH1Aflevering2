@@ -65,9 +65,9 @@ namespace OOPH1Aflevering2.Codes
             }
             catch (Exception ex)
             {
-                foreach (var displayTeacher in Teachers)
+                foreach (var displayTeacher in Enum.GetValues(typeof(SchoolingCategory)))
                 {
-                    displayTeachers.Add(displayTeacher);
+                    displayTeachers.Add((TECPerson)displayTeacher);
                 }
             }
         }
