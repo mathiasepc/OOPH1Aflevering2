@@ -36,7 +36,7 @@ namespace OOPH1Aflevering2.Codes
                     schoolingCourses.Add(nameInfo);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 schoolingCourses.Add("Basic programming");
                 schoolingCourses.Add("Objectoriented programming");
@@ -60,24 +60,12 @@ namespace OOPH1Aflevering2.Codes
             {
                 foreach (var displayTeacher in Teachers)
                 {
-                    if (SchoolingName == displayTeacher.UddannelsesLinje)
-                    {
-                        if (displayTeacher.FullName == "Niels Olsen")
-                            displayTeachers.Add(displayTeacher);
-
-                        else if (displayTeacher.FullName == "Bo Hansen")
-                            displayTeachers.Add(displayTeacher);
-
-                        else
-                            displayTeachers.Add(displayTeacher);
-                    }
-                    else
-                        displayTeachers.Add(displayTeacher);
+                    displayTeachers.Add(displayTeacher);
                 }
             }
             catch (Exception ex)
             {
-                foreach(var displayTeacher in Teachers)
+                foreach (var displayTeacher in Teachers)
                 {
                     displayTeachers.Add(displayTeacher);
                 }
