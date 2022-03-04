@@ -20,10 +20,10 @@ namespace OOPH1Aflevering2.Codes
         public override void SetCourses()
         {
             base.SetCourses();
+            List<string> schoolinCourses = new();
+            SchoolingCourses = schoolinCourses;
             try
             {
-                List<string> schoolinCourses = new();
-                SchoolingCourses = schoolinCourses;
                 var enumType = typeof(CourseCategory);
                 Array values = Enum.GetValues(typeof(CourseCategory));
 
@@ -38,13 +38,11 @@ namespace OOPH1Aflevering2.Codes
             }
             catch(Exception ex)
             {
-                List<string> schoolingCourses = new();
-                Courses = schoolingCourses;
-                schoolingCourses.Add("Basic programming");
-                schoolingCourses.Add("Objectoriented programming");
-                schoolingCourses.Add("Database server");
-                schoolingCourses.Add("WAN ethernet");
-                schoolingCourses.Add("LAN ethernet");
+                schoolinCourses.Add("Basic programming");
+                schoolinCourses.Add("Objectoriented programming");
+                schoolinCourses.Add("Database server");
+                schoolinCourses.Add("WAN ethernet");
+                schoolinCourses.Add("LAN ethernet");
             }
         }
 
