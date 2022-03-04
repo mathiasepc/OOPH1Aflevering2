@@ -25,17 +25,15 @@ namespace OOPH1Aflevering2.Codes
 
         public virtual void SetCourses()
         {
+            List<string> courses = new();
+            Courses = courses;
             try
             {
-                List<string> courses = new();
-                Courses = courses;
                 foreach (var displayCourses in (Enum.GetNames(typeof(CourseCategory))))
                     courses.Add(displayCourses);
             }
             catch(Exception ex)
             {
-                List<string> courses = new();
-                Courses = courses;
                 courses.Add("Basic programming");
                 courses.Add("Objectoriented programming");
                 courses.Add("Database server");
