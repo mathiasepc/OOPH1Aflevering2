@@ -1,4 +1,6 @@
-﻿SchoolingCategory school = new();
+﻿//OOPH1 Eksamen
+
+SchoolingCategory school = new();
 List<TECPerson> persons = new();
 
 Course course = new(school);
