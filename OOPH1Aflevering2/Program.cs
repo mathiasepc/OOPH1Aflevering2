@@ -108,30 +108,30 @@ while (true)
         Console.WriteLine("Teacher:");
 
         course.Teachers.Sort();
-        foreach (var displayName in course.Teachers)
+        foreach (var displayTeacherInfo in course.Teachers)
         {
-            if (course.SchoolingName == displayName.UddannelsesLinje && displayName.FullName == "Niels Olsen")
+            if (course.SchoolingName == displayTeacherInfo.UddannelsesLinje && displayTeacherInfo.FullName == "Niels Olsen")
             {
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"{displayName.FullName}");
+                Console.WriteLine($"{displayTeacherInfo.FullName}");
                 Console.ForegroundColor = ConsoleColor.White;
             }
-            else if (course.SchoolingName == displayName.UddannelsesLinje && displayName.FullName == "Bo Hansen")
+            else if (course.SchoolingName == displayTeacherInfo.UddannelsesLinje && displayTeacherInfo.FullName == "Bo Hansen")
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine($"{displayName.FullName}");
+                Console.WriteLine($"{displayTeacherInfo.FullName}");
                 Console.ForegroundColor = ConsoleColor.White;
             }
-            else if (course.SchoolingName == displayName.UddannelsesLinje && displayName.FullName == "Ole Nielsen")
+            else if (course.SchoolingName == displayTeacherInfo.UddannelsesLinje && displayTeacherInfo.FullName == "Ole Nielsen")
             {
                 Console.ForegroundColor = ConsoleColor.Blue;
-                Console.WriteLine($"{displayName.FullName}");
+                Console.WriteLine($"{displayTeacherInfo.FullName}");
                 Console.ForegroundColor = ConsoleColor.White;
             }
             else
             {
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine($"{displayName.FullName}");
+                Console.WriteLine($"{displayTeacherInfo.FullName}");
             }
         }
         Console.ReadKey();
