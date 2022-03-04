@@ -59,7 +59,7 @@ while (true)
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.Write("Support");
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine(" with the following extension.");
+            Console.WriteLine(" the following extension.");
         }
         else
         {
