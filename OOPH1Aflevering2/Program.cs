@@ -73,32 +73,32 @@ while (true)
         Console.WriteLine("------------------------------------");
 
         course.SchoolingCourses.Sort();
-        foreach (string temp in course.SchoolingCourses)
+        foreach (string displayCourseExtension in course.SchoolingCourses)
         {
             Console.ForegroundColor = ConsoleColor.White;
-            if (course.SchoolingName == SchoolingCategory.Programmingcourse && temp.Contains("programming"))
+            if (course.SchoolingName == SchoolingCategory.Programmingcourse && displayCourseExtension.Contains("programming"))
             {
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"{temp}");
+                Console.WriteLine($"{displayCourseExtension}");
                 Console.ForegroundColor = ConsoleColor.White;
 
             }
-            else if (course.SchoolingName == SchoolingCategory.Supportcourse && temp.Contains("server"))
+            else if (course.SchoolingName == SchoolingCategory.Supportcourse && displayCourseExtension.Contains("server"))
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine($"{temp}");
+                Console.WriteLine($"{displayCourseExtension}");
                 Console.ForegroundColor = ConsoleColor.White;
             }
-            else if (course.SchoolingName == SchoolingCategory.infrastructure && temp.Contains("ethernet"))
+            else if (course.SchoolingName == SchoolingCategory.infrastructure && displayCourseExtension.Contains("ethernet"))
             {
                 Console.ForegroundColor = ConsoleColor.Blue;
-                Console.WriteLine($"{temp}");
+                Console.WriteLine($"{displayCourseExtension}");
                 Console.ForegroundColor = ConsoleColor.White;
             }
             else
             {
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine($"{temp}");
+                Console.WriteLine($"{displayCourseExtension}");
                 Console.ForegroundColor = ConsoleColor.White;
             }
         }
@@ -108,30 +108,30 @@ while (true)
         Console.WriteLine("Teacher:");
 
         course.Teachers.Sort();
-        foreach (var item in course.Teachers)
+        foreach (var displayName in course.Teachers)
         {
-            if (course.SchoolingName == item.UddannelsesLinje && item.FullName == "Niels Olsen")
+            if (course.SchoolingName == displayName.UddannelsesLinje && displayName.FullName == "Niels Olsen")
             {
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"{item.FullName}");
+                Console.WriteLine($"{displayName.FullName}");
                 Console.ForegroundColor = ConsoleColor.White;
             }
-            else if (course.SchoolingName == item.UddannelsesLinje && item.FullName == "Bo Hansen")
+            else if (course.SchoolingName == displayName.UddannelsesLinje && displayName.FullName == "Bo Hansen")
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine($"{item.FullName}");
+                Console.WriteLine($"{displayName.FullName}");
                 Console.ForegroundColor = ConsoleColor.White;
             }
-            else if (course.SchoolingName == item.UddannelsesLinje && item.FullName == "Ole Nielsen")
+            else if (course.SchoolingName == displayName.UddannelsesLinje && displayName.FullName == "Ole Nielsen")
             {
                 Console.ForegroundColor = ConsoleColor.Blue;
-                Console.WriteLine($"{item.FullName}");
+                Console.WriteLine($"{displayName.FullName}");
                 Console.ForegroundColor = ConsoleColor.White;
             }
             else
             {
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine($"{item.FullName}");
+                Console.WriteLine($"{displayName.FullName}");
             }
         }
         Console.ReadKey();
