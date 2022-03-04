@@ -20,19 +20,31 @@ namespace OOPH1Aflevering2.Codes
         public override void SetCourses()
         {
             base.SetCourses();
-
-            List<string> schoolinCourses = new();
-            SchoolingCourses = schoolinCourses;
-            var enumType = typeof(CourseCategory);
-            Array values = Enum.GetValues(typeof(CourseCategory));
-
-            foreach (var item in values)
+            try
             {
-                DisplayAttribute? courseInfo = item.GetType().GetMember(item.ToString()).First().GetCustomAttribute<DisplayAttribute>();
+                List<string> schoolinCourses = new();
+                SchoolingCourses = schoolinCourses;
+                var enumType = typeof(CourseCategory);
+                Array values = Enum.GetValues(typeof(CourseCategory));
 
-                string nameInfo = courseInfo.GetName();
+                foreach (var item in values)
+                {
+                    DisplayAttribute? courseInfo = item.GetType().GetMember(item.ToString()).First().GetCustomAttribute<DisplayAttribute>();
 
-                schoolinCourses.Add(nameInfo);
+                    string nameInfo = courseInfo.GetName();
+
+                    schoolinCourses.Add(nameInfo);
+                }
+            }
+            catch(Exception ex)
+            {
+                List<string> schoolingCourses = new();
+                Courses = schoolingCourses;
+                schoolingCourses.Add("Basic programming");
+                schoolingCourses.Add("Objectoriented programming");
+                schoolingCourses.Add("Database server");
+                schoolingCourses.Add("WAN ethernet");
+                schoolingCourses.Add("LAN ethernet");
             }
         }
 
@@ -45,22 +57,31 @@ namespace OOPH1Aflevering2.Codes
         {
             List<TECPerson> displayTeachers = new();
             Teachers = displayTeachers;
-
-            foreach (var displayTeacher in Teachers)
+            try
             {
-                if (SchoolingName == displayTeacher.UddannelsesLinje)
+                foreach (var displayTeacher in Teachers)
                 {
-                    if (displayTeacher.FullName == "Niels Olsen")
-                        displayTeachers.Add(displayTeacher);
+                    if (SchoolingName == displayTeacher.UddannelsesLinje)
+                    {
+                        if (displayTeacher.FullName == "Niels Olsen")
+                            displayTeachers.Add(displayTeacher);
 
-                    else if (displayTeacher.FullName == "Bo Hansen")
-                        displayTeachers.Add(displayTeacher);
+                        else if (displayTeacher.FullName == "Bo Hansen")
+                            displayTeachers.Add(displayTeacher);
 
+                        else
+                            displayTeachers.Add(displayTeacher);
+                    }
                     else
                         displayTeachers.Add(displayTeacher);
                 }
-                else
+            }
+            catch (Exception ex)
+            {
+                foreach(var displayTeacher in Teachers)
+                {
                     displayTeachers.Add(displayTeacher);
+                }
             }
         }
     }
