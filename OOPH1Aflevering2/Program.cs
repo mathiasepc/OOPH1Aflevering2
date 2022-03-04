@@ -1,6 +1,4 @@
-﻿//Vi har valgt ikke at bruge nogen exception handler andet end i vores switch da det er hardcoded data.
-
-SchoolingCategory school = new();
+﻿SchoolingCategory school = new();
 List<TECPerson> persons = new();
 
 Course course = new(school);
