@@ -14,7 +14,7 @@
  * 
  * 
  * Svar: 
- * Det er nr 1 og nr 4 som vil virker når vi instantiere dem.
+ * Det er nr 1, 2, 3 og 4 som vil virker når vi instantiere dem.
  * 
  * 
  * Spørgsmål 2: Hvis man instantuere Audi klassen. 
@@ -22,14 +22,14 @@
  * 
  * 
  * Svar: 
- * Vi kan kun se hestekræfter. Vi kan ikke se mærke.
+ * Vi kan se alle popperty i alle klasser
  * 
  * 
  * Spørgsmål 3: Hvis man istantiere MotorKøretøj klassen. Kan man igennem motorkøretøj instans se Mærke og Model property'erne.
  * 
  * 
  * Svar: 
- * Man kan kun se HesteKræfter.
+ * Man kan kun se biler.
  * 
  * 
  * 2/5
@@ -52,11 +52,7 @@
  * 
  * 
  * Svar: 
- * Bil b1 = bil.FirstOrDefault(a => a.HesteKræfter == 90);
- * Bil b2 = bil.FirstOrDefault(a => a.HesteKræfter == 175);
- *
- * Console.WriteLine($"{b1.Mærke} {b1.Model}");
- * Console.WriteLine($"{b2.Mærke} {b2.Model}");
+ * Bil b1 = bil.Where(a => a.HesteKræfter > 60);
  * 
  * 
  * Spørgsmål 3: Vis med LinQ hvordan i kan udtræk en enkelt bil objekt ud af mærket Audi og udskriv alle den info i konsollen
@@ -89,14 +85,13 @@
  * 
  * 
  * Svar:
- * ?? = Biler.Where(...);
+ * ?? = Biler.FirstOrDefault(...);
  * 
  * 
  * Spørgsmål 4: Hvilket af de 3 kode linjer foroven vil CRASH applikationen hvis ingen match fundet i søge kondition
  * 
  * 
  * Svar:
- * ?? = Biler.FirstOrDefault(...);
  * ?? = Biler.First(...);
  * 
  * 
