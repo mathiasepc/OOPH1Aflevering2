@@ -3,46 +3,65 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+//bruger using reflection og componentModel
+using System.Reflection;
+using System.ComponentModel.DataAnnotations;
 
 namespace OOPH1Aflevering2.Codes
 {
     internal abstract class Schooling
     {
+        #region Properties
         public SchoolingCategory SchoolingName { get; set; }
         public List<TECPerson> Teachers { get; set; }
         public List<string>? Courses { get; set; }
+        #endregion
 
+        #region Constructor
         public Schooling(SchoolingCategory schoolingName)
         {
-            List<TECPerson> teacherName = new()
+            
+            //tilføjer lærer til mit array
+            Teachers = new List<TECPerson>()
             {
                 new TECPerson { FullName = "Niels Olsen", UddannelsesLinje = SchoolingCategory.Programmingcourse },
                 new TECPerson { FullName = "Bo Hansen", UddannelsesLinje = SchoolingCategory.Supportcourse },
                 new TECPerson { FullName = "Ole Nielsen", UddannelsesLinje = SchoolingCategory.infrastructure }
             };
-            Teachers = teacherName.ToList();
+            Courses = new List<string>();
         }
+        #endregion
 
-        public virtual void SetCourses()
+        #region Methods
+        public virtual void SetCourses(SchoolingCategory schoolingName)
         {
-            List<string> courses = new();
-            Courses = courses;
-            try
+            //opretter min liste
+            Courses = new List<string>();
+            //henter mine CourseCategory værdier 
+            Array values = Enum.GetValues(typeof(CourseCategory));
+
+            //læser mine værider i values i item
+            foreach (CourseCategory item in values)
             {
-                foreach (var displayCourses in (Enum.GetNames(typeof(CourseCategory))))
-                    courses.Add(displayCourses);
-            }
-            catch(Exception ex)
-            {
-                courses.Add("Basic programming");
-                courses.Add("Objectoriented programming");
-                courses.Add("Database server");
-                courses.Add("WAN ethernet");
-                courses.Add("LAN ethernet");
+                //bruger using reflection til at få adgang og omskrive data til string og putte i et array
+                MemberInfo[] memberInfo = item.GetType().GetMember(item.ToString());
+                //bruger using Component til at localisere mine string af type og members  
+                DisplayAttribute displayAttribute = memberInfo.First().GetCustomAttribute<DisplayAttribute>();
+                if (displayAttribute != null)
+                {
+                    string? displayName = displayAttribute.GetName();
+                    if (displayName != null)
+                    {
+                        //tilføjer til min liste
+                        Courses.Add(displayName);
+                    }
+                }
             }
         }
 
         public abstract void GetTeacher();
+
+        #endregion
     }
 }
 
