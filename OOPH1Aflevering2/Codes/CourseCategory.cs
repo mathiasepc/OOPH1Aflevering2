@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 
-namespace OOPH1Aflevering2.Codes
+namespace OOPH1_Aflevering.Codes
 {
     public enum CourseCategory
     {

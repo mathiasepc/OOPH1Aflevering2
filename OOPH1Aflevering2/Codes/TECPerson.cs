@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OOPH1Aflevering2.Codes
+namespace OOPH1_Aflevering.Codes
 {
     internal class TECPerson : IComparable<TECPerson>
     {

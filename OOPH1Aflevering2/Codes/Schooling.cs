@@ -1,65 +1,62 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ComponentModel.DataAnnotations;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-//bruger using reflection og componentModel
-using System.Reflection;
-using System.ComponentModel.DataAnnotations;
 
-namespace OOPH1Aflevering2.Codes
+namespace OOPH1_Aflevering.Codes
 {
     internal abstract class Schooling
     {
         #region Properties
+
         public SchoolingCategory SchoolingName { get; set; }
-        public List<TECPerson> Teachers { get; set; }
-        public List<string>? Courses { get; set; }
+        public List<TECPerson>? Teachers { get; set; }
+        public List<string> Courses { get; set; }
+
         #endregion
 
         #region Constructor
+
         public Schooling(SchoolingCategory schoolingName)
         {
-            
-            //tilføjer lærer til mit array
+            SchoolingName = schoolingName;
+
             Teachers = new List<TECPerson>()
             {
-                new TECPerson { FullName = "Niels Olsen", UddannelsesLinje = SchoolingCategory.Programmingcourse },
-                new TECPerson { FullName = "Bo Hansen", UddannelsesLinje = SchoolingCategory.Supportcourse },
-                new TECPerson { FullName = "Ole Nielsen", UddannelsesLinje = SchoolingCategory.infrastructure }
+                new TECPerson() { UddannelsesLinje = SchoolingCategory.Programmingcourse, FullName = "Niels Olesen" },
+                new TECPerson() { UddannelsesLinje = SchoolingCategory.Supportcourse, FullName = "Bo Hansen" },
+                new TECPerson() { UddannelsesLinje = SchoolingCategory.infrastructure, FullName = "Ole Nielsen" }
             };
+
             Courses = new List<string>();
         }
+
         #endregion
 
         #region Methods
-        public virtual void SetCourses(SchoolingCategory schoolingName)
+
+        public virtual void SetCourses()
         {
-            //opretter min liste
             Courses = new List<string>();
-            //henter mine CourseCategory værdier 
             Array values = Enum.GetValues(typeof(CourseCategory));
 
-            //læser mine værider i values i item
             foreach (CourseCategory item in values)
             {
-                //bruger using reflection til at få adgang og omskrive data til string og putte i et array
                 MemberInfo[] memberInfo = item.GetType().GetMember(item.ToString());
-                //bruger using Component til at localisere mine string af type og members  
-                DisplayAttribute displayAttribute = memberInfo.First().GetCustomAttribute<DisplayAttribute>();
+                DisplayAttribute? displayAttribute = memberInfo.First().GetCustomAttribute<DisplayAttribute>();
                 if (displayAttribute != null)
                 {
                     string? displayName = displayAttribute.GetName();
                     if (displayName != null)
-                    {
-                        //tilføjer til min liste
                         Courses.Add(displayName);
-                    }
                 }
             }
         }
 
-        public abstract void GetTeacher();
+        public abstract string? GetTeacher();
 
         #endregion
     }

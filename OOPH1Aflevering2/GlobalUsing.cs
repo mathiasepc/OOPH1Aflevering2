@@ -1,1 +1,1 @@
-﻿global using OOPH1Aflevering2.Codes;
+﻿global using OOPH1_Aflevering.Codes;
